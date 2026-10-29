@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+    <h2>ჩვენი პროდუქტების სია</h2>
+    
+    <ul>
+        {% for product in products %}
+            <li>
+                <strong>{{ product.name }}</strong> – {{ product.price }} GEL
+                <br>
+                {% if product.price > 500 %}
+                    <span style="color: #e74c3c; font-weight: bold;">ძვირადღირებული პროდუქტია</span>
+                {% else %}
+                    <span style="color: #27ae60; font-weight: bold;">ბიუჯეტური პროდუქტია</span>
+                {% endif %}
+            </li>
+        {% endfor %}
+    </ul>
+
+    <a href="{% url 'home' %}" style="display: inline-block; padding: 10px 20px; background-color: #3498db; color: white; text-decoration: none; border-radius: 4px; margin-top: 15px;">მთავარ გვერდზე დაბრუნება</a>
+{% endblock %}
